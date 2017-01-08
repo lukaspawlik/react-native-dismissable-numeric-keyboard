@@ -1,0 +1,21 @@
+{
+  "name": "react-native-dismissable-numeric-keyboard",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukaspawlik/react-native-dismissable-numeric-keyboard.git"
+  },
+  "keywords": [
+    "react-native",
+    "numeric keyboard",
+    "close keyboard",
+    "dismissable keyboard"
+  ],
+  "author": "Lukas Pawlik <lukasz.pawlik@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lukaspawlik/react-native-dismissable-numeric-keyboard/issues"
+  },
+  "homepage": "https://github.com/lukaspawlik/react-native-dismissable-numeric-keyboard#readme",
+  "readmeFilename": "README.md"
+}
