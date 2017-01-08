@@ -9,7 +9,7 @@
 #import "RCTComponentData+DNKeyboard.h"
 #import <objc/runtime.h>
 
-@implementation RCTComponentData (DismissableNumericKeyboard);
+@implementation RCTComponentData (DismissableNumericKeyboard)
 
 - (void)setPropsAndAddToolbar:(NSDictionary<NSString *, id> *)props forView:(id<RCTComponent>)view
 {
