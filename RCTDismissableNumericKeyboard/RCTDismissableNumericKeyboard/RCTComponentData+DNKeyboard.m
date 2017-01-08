@@ -22,17 +22,28 @@
         toolbar.barStyle = UIBarStyleBlackOpaque;
         
         NSString *returnKeyTypeName = [props objectForKey:@"returnKeyType"];
-        UIReturnKeyType *returnKeyType = [RCTConvert UIReturnKeyType:returnKeyTypeName];
         
         UIBarButtonSystemItem item = UIBarButtonSystemItemDone;
-        if (returnKeyType == UIReturnKeySearch) {
+        
+        if ([returnKeyTypeName isEqualToString:@"done"]) {
+            item = UIBarButtonSystemItemDone;
+        }
+        
+        if ([returnKeyTypeName isEqualToString:@"search"]) {
             item = UIBarButtonSystemItemSearch;
         }
-        if (returnKeyType == UIReturnKeyGo) {
+        
+        if ([returnKeyTypeName isEqualToString:@"save"]) {
             item = UIBarButtonSystemItemSave;
         }
-            
-
+        
+        if ([returnKeyTypeName isEqualToString:@"add"]) {
+            item = UIBarButtonSystemItemAdd;
+        }
+        
+        if ([returnKeyTypeName isEqualToString:@"edit"]) {
+            item = UIBarButtonSystemItemEdit;
+        }
         
         UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             
