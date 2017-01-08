@@ -19,7 +19,7 @@
     
     if ([self shouldCloseButtonBeInjected:props forView:view]) {
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 35.0f)];
-        toolbar.barStyle = UIBarStyleBlackOpaque;
+        toolbar.barStyle = UISearchBarStyleDefault;
         
         NSString *returnKeyTypeName = [props objectForKey:@"returnKeyType"];
         
@@ -33,21 +33,23 @@
             item = UIBarButtonSystemItemSearch;
         }
         
-        if ([returnKeyTypeName isEqualToString:@"save"]) {
+        if ([returnKeyTypeName isEqualToString:@"default"]) {
             item = UIBarButtonSystemItemSave;
         }
         
-        if ([returnKeyTypeName isEqualToString:@"add"]) {
+        if ([returnKeyTypeName isEqualToString:@"send"]) {
             item = UIBarButtonSystemItemAdd;
         }
         
-        if ([returnKeyTypeName isEqualToString:@"edit"]) {
+        if ([returnKeyTypeName isEqualToString:@"go"]) {
             item = UIBarButtonSystemItemEdit;
         }
         
         UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             
         UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:item target:view action:NSSelectorFromString(@"resignFirstResponder")];
+        
+        barButtonItem.tintColor = [UIColor darkTextColor];
             
         [toolbar setItems:[NSArray arrayWithObjects:flexibleSpace, barButtonItem, nil]];
         ((UITextField *)view).inputAccessoryView = toolbar;

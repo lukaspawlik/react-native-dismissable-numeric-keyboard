@@ -24,12 +24,12 @@ rnpm link
 
 where `returnKeyType` can be one of supported return key types.
 
-#### returnKeyType values
-    - done
-    - search
-    - save
-    - add
-    - edit
+#### returnKeyType values and mapping
+    - done    - Done
+    - default - Save
+    - search  - Search
+    - send    - Add
+    - go      - Edit
 
 ##Changelog
     + v0.0.1
