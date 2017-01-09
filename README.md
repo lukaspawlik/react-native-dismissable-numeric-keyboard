@@ -7,7 +7,7 @@ This supports only iOS as this module does not contain any Android file.
 
 ##Installation
 ```
-npm install --save react-native-closeable-numeric-keyboard
+npm install --save react-native-dismissable-numeric-keyboard
 rnpm link
 ```
 
