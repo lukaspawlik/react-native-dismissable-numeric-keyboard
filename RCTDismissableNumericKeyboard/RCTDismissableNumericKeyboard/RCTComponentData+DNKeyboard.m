@@ -51,7 +51,7 @@
 
         UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             
-        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:item target:view action:NSSelectorFromString(@"resignFirstResponder")];
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:item target:view action:NSSelectorFromString(@"resignFirstResponderAndEmitSubmitEditingEvent")];
         
         barButtonItem.tintColor = [UIColor darkTextColor];
             
