@@ -7,6 +7,8 @@
 //
 
 #import "RCTComponentData+DNKeyboard.h"
+#import "RCTTextField.h"
+#import "RCTEventDispatcher.h"
 #import <objc/runtime.h>
 
 @implementation RCTComponentData (DismissableNumericKeyboard)
@@ -45,9 +47,11 @@
             item = UIBarButtonSystemItemEdit;
         }
         
+        class_addMethod([view class], @selector(resignFirstResponderAndEmitSubmitEditingEvent), (IMP)resignFirstResponderAndEmitEvent,  "b@:");
+
         UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
             
-        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:item target:view action:NSSelectorFromString(@"resignFirstResponder")];
+        UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:item target:view action:NSSelectorFromString(@"resignFirstResponderAndEmitSubmitEditingEvent")];
         
         barButtonItem.tintColor = [UIColor darkTextColor];
             
@@ -59,6 +63,13 @@
     
     [self setPropsAndAddToolbar:props forView:view];
     
+}
+
+void resignFirstResponderAndEmitEvent(RCTTextField *self, SEL _cmd)
+{
+    SEL selector = NSSelectorFromString(@"textFieldSubmitEditing");
+    [self performSelector:selector];
+    [self resignFirstResponder];
 }
 
 -(BOOL)shouldCloseButtonBeInjected:(NSDictionary<NSString *, id> *)props forView:(id<RCTComponent>)view
